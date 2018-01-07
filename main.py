@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from requests import get
 from cachetools import TTLCache, cached
 from bottle import route, run
+import os
 
 
 cache = TTLCache(1000, 600)
@@ -28,4 +29,4 @@ def taplist_endpoint(location, bar):
 	taplist = get_taplist(location, bar)
 	return {"taplist": taplist}
 
-run(host='0.0.0.0', port=80)
+run(host='0.0.0.0', port=int(os.getenv('PORT', '8080')))
