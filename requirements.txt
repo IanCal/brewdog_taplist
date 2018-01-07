@@ -1,0 +1,4 @@
+bs4
+bottle
+requests
+cachetools
